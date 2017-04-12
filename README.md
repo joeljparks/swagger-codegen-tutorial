@@ -10,7 +10,7 @@ In this tutorial, we will cover:
 ## Swagger Definition Basics
 Swagger definitions are JSON or YML representations of an API.  In the definition, you can describe paths, resources, allowed operations and authentication details.  For example, take a look at the petshop.yml file included in this repository.  In this example, we have the Swagger definition of the API for a Pet Shop.  At the top of the definition, the API version and base path (along with other values) are set.  Below that, a resource called "pet" is defined including that resource's allowed operations, authorization requirements, parameters and responses.  For the full details of the Swagger specification, check out the documentation here:  http://swagger.io/specification/
 
-By defining APIs in this way, we capture the requirements of the API.  Annotations can also be applied to each configuration to make the definition easier to read.  Those annotations can be consumed in a later phase to generate documentation OR code comments when the definition is used in conjunction with Swagger codegen.
+By defining APIs in this way, we capture the requirements of the API.  Annotations can also be applied to each configuration to make the definition easier to read.  Those annotations can be consumed in a later phase to generate documentation AND code comments when the definition is used in conjunction with Swagger codegen.
 
 Swagger codegen is used to read a Swagger definition (such as the Pet Shop example above) and generate boilerplate code to speed up the development process.  The generation of boilerplate code is often referred to as "Scaffolding".  By defining the API in Swagger and creating the scaffolding using Swagger codegen, we minimize the differences in coding styles between teams.  This promotes readability as well as reusablility to code between teams in addition to shortening the development cycle.  All you have to do is "fill in the blanks" with the code that should be executed by each method defined.
 
@@ -37,4 +37,10 @@ The default output of the command lists the languages supported by your version.
 
 `swagger-codegen generate -i petshop.yaml -l python-flash -o ./petshop`
 
-If you look in the "petshop" directory, you'll now see the scaffolding for your service!  
+If you look in the "petshop" directory, you'll now see the scaffolding for your service!  If you look in the "swagger_server", directory you'll find the structure for the petshop service.  
+
+Check out the "models" directory.  You'll see the model for the resource "Pet" we defined in the Swagger definition.  
+
+Also take a look in the "controllers" directory at the "default_controller.py".  You'll notice several instances of "do some magic".  This is where you need to insert the code required to execute the defined operation.  
+
+By following this approach, you can get new services up-and-running quickly, with automatic documentation and a high degree of consistency from developer to developer.  
