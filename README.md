@@ -35,7 +35,7 @@ Now that your installation is up and running, you have to decide what language y
 
 The default output of the command lists the languages supported by your version.  For this example, let's assume that you're most comfortable with Python and Flask.  So how do we generate the scaffolding for the Pet Shop service in Python using Swagger codegen?  It's as simple as:
 
-`swagger-codegen generate -i petshop.yaml -l python-flash -o ./petshop`
+`swagger-codegen generate -i petshop.yaml -l python-flask -o ./petshop`
 
 Let's parse that command:  `generate` is used to invoke the code generation function.  `-i petshop.yaml` specifies the Swagger definition to read.  `-l python-flask` tells the code generator to create a server stub using python & flask.  `-o ./petshop` tells the code generator to create the project structure in the directory "petshop".  Pretty straightforward.  
 
