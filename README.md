@@ -8,7 +8,7 @@ In this tutorial, we will cover:
 
 
 ## Swagger Definition Basics
-Swagger definitions are JSON or YML representations of an API.  In the definition, you can describe paths, resources, allowed operations and authentication details.  For example, take a look at the petshop.yml file included in this repository.  In this example, we have the Swagger definition of the API for a Pet Shop.  At the top of the definition, the API version and base path (along with other values) are set.  Below that, a resource called "pet" is defined including that resource's allowed operations, authorization requirements, parameters and responses.  For the full details of the Swagger specification, check out the documentation here:  http://swagger.io/specification/
+Swagger definitions are JSON or YAML representations of an API.  In the definition, you can describe paths, resources, allowed operations and authentication details and more.  For example, take a look at the petshop.yaml file included in this repository.  In this example, we have the Swagger definition of the API for a Pet Shop.  At the top of the definition, the API version and base path (along with other values) are set.  Below that, a resource called "pet" is defined including that resource's allowed operations, authorization requirements, parameters and responses.  For the full details of the Swagger specification, check out the documentation here:  http://swagger.io/specification/
 
 By defining APIs in this way, we capture the requirements of the API.  Annotations can also be applied to each configuration to make the definition easier to read.  Those annotations can be consumed in a later phase to generate documentation AND code comments when the definition is used in conjunction with Swagger codegen.
 
