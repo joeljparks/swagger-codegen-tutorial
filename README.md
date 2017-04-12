@@ -37,10 +37,14 @@ The default output of the command lists the languages supported by your version.
 
 `swagger-codegen generate -i petshop.yaml -l python-flash -o ./petshop`
 
-If you look in the "petshop" directory, you'll now see the scaffolding for your service!  If you look in the "swagger_server", directory you'll find the structure for the petshop service.  
+Let's parse that command:  `generate` is used to invoke the code generation function.  `-i petshop.yaml` specifies the Swagger definition to read.  `-l python-flask` tells the code generator to create a server stub using python & flask.  `-o ./petshop` tells the code generator to create the project structure in the directory "petshop".  Pretty straightforward.  
 
-Check out the "models" directory.  You'll see the model for the resource "Pet" we defined in the Swagger definition.  
+In real world use, it's not unusual to get parsing errors on definitions you've created.  Usually, it's a formatting issue.  If you run into that problem, the quick way to diagnose the source is to utilize Swagger Online Editor http://swagger.io/swagger-editor/.  You can import your .yaml or .json formatted Swagger definition into the editor and it will show you (in most cases) all the small, silly things in your definition that can cause exceptions in the codegen process.  For this example, the file has already been validated so the code generator shouldn't throw errors or exceptions.  
 
-Also take a look in the "controllers" directory at the "default_controller.py".  You'll notice several instances of "do some magic".  This is where you need to insert the code required to execute the defined operation.  
+Once the command has completed, take a look in the "petshop" directory.  You'll notice a new "swagger_server" directory.  If you look in the "swagger_server", directory you'll find the structure for the petshop service!  Let me draw your attention to a couple files to illustrate what the code generator has done.  
+
+First, look at the "models" directory.  You'll see the model for the resource "Pet" we defined in the Swagger definition.  If you explore this file, you'll see the correlation between the the resource "Pet" in the Swagger definition and the class "Pet" created by the code generator.  
+
+Also take a look in the "controllers" directory at the "default_controller.py".  First, You'll notice that all of the Operation IDs that we specified in the Swagger definition have been converted into functions.  You'll also notice several instances of the string "do some magic".  This is where you need to insert the code required to execute the defined operation.  So this is literally "INSERT YOUR CODE HERE".
 
 By following this approach, you can get new services up-and-running quickly, with automatic documentation and a high degree of consistency from developer to developer.  
